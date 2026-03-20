@@ -26,6 +26,7 @@ type model struct {
 	inputMode bool
 	mode      string
 	width     int
+	height    int
 	status    string
 	statusErr bool
 }
@@ -91,6 +92,7 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	switch msg := msg.(type) {
 	case tea.WindowSizeMsg:
 		m.width = msg.Width - 4
+		m.height = msg.Height
 		if m.width < minWidth {
 			m.width = minWidth
 		}
@@ -303,10 +305,21 @@ func (m model) View() string {
 		),
 	}
 
-	return lipgloss.NewStyle().
+	view := lipgloss.NewStyle().
 		Foreground(greenSoft).
 		Padding(1, 2).
 		Render(strings.TrimSpace(strings.Join(lines, "\n\n")))
+
+	if m.height <= 0 {
+		return view
+	}
+
+	lineCount := strings.Count(view, "\n") + 1
+	if lineCount >= m.height {
+		return view
+	}
+
+	return view + strings.Repeat("\n ", m.height-lineCount)
 }
 
 func (m model) renderBanner(width int) string {
@@ -318,7 +331,7 @@ func (m model) renderBanner(width int) string {
 
 	subtitle := lipgloss.NewStyle().
 		Foreground(greenMute).
-		Render("simple green client")
+		Render("simple client by rarnen-tech (fedor)")
 
 	return lipgloss.NewStyle().
 		Width(maxInt(24, width-4)).

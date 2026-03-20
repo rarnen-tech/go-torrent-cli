@@ -1,6 +1,7 @@
 # go-torrent-cli
 
 Small CLI torrent client in Go.
+![preview.png](preview.png)
 
 ## What it uses
 
