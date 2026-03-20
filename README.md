@@ -1,4 +1,4 @@
-[Русская версия](./README.ru.md)
+[Русский README](./README.ru.md)
 # go-torrent-cli
 
 Small CLI torrent client in Go.
