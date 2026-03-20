@@ -93,10 +93,3 @@ $env:TORRENT_REDIS_PASSWORD=""
 $env:TORRENT_REDIS_DB="0"
 $env:TORRENT_REDIS_PREFIX="go-torrent-cli"
 ```
-
-## PostgreSQL ideas
-
-- Save full download history after finish.
-- Store session stats by time and speed.
-- Keep tags, notes, and manual categories.
-- Save tracker health and peer error stats.
