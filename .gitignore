@@ -1,0 +1,9 @@
+.torrent-state/
+downloads/
+downloads.json
+config.json
+bin/
+.env
+*.exe
+*.test
+coverage.out
