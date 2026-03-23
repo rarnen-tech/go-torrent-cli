@@ -1,4 +1,3 @@
-[Русский README](./README.ru.md)
 # go-torrent-cli
 
 [![CI](https://github.com/rarnen-tech/go-torrent-cli/actions/workflows/ci.yml/badge.svg)](https://github.com/rarnen-tech/go-torrent-cli/actions/workflows/ci.yml)
