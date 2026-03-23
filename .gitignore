@@ -3,6 +3,7 @@ downloads/
 downloads.json
 config.json
 bin/
+dist/
 .env
 *.exe
 *.test

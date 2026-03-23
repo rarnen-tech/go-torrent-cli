@@ -21,7 +21,7 @@ RM_DOWNLOADS_JSON := rm -f downloads.json
 RM_CONFIG := rm -f config.json
 endif
 
-.PHONY: up down restart logs ps build run test clean
+.PHONY: up down restart logs ps build run test bench clean
 
 up:
 	$(COMPOSE) up -d
@@ -48,6 +48,9 @@ run:
 
 test:
 	go test ./...
+
+bench:
+	go test -run ^$$ -bench Benchmark -benchmem ./internal/torrent
 
 clean:
 	$(RM_BIN)
